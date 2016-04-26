@@ -1,0 +1,5 @@
+﻿  Source.cpp
+c:\users\lucas\documents\visual studio 2015\projects\ter\ter\source.cpp(80): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+c:\users\lucas\documents\visual studio 2015\projects\ter\ter\source.cpp(83): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+c:\users\lucas\documents\visual studio 2015\projects\ter\ter\source.cpp(134): warning C4305: 'argument' : troncation de 'double' à 'float'
+  TER.vcxproj -> C:\Users\Lucas\documents\visual studio 2015\Projects\TER\Debug\TER.exe
