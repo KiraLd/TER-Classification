@@ -1,4 +1,7 @@
 #include <opencv2\opencv.hpp>
+#include "FuzzyClustering.hpp"
+#include "GrayFCM.h"
+#include "RgbFCM.h"
 #include <ctime>
 using namespace cv;
 
@@ -41,6 +44,7 @@ void update_centers(const Mat& img, Mat* membership,float* centers, int c, float
 			}
 		}
 		centers[i] /= sum;
+		std::cout << centers[i] << std::endl;
 	}
 	delete[] exp;
 }
@@ -65,7 +69,13 @@ void dissimilarity(const Mat& img, float* centers, int c, Mat* D)
 void update_membership(Mat* D, Mat* U, int x, int y, int c, float m)
 {
 	float sum;
-	float exp = (1.f / (m - 1));
+	float exp;
+	if (m < 1.5)
+	{
+		m = 1.5;
+	}
+	exp = (1.f / (m - 1));
+	
 	for (int i = 0; i < c; i++)
 	{
 		for (int j = 0; j < x; j++)
@@ -124,13 +134,35 @@ int main(int argc, char* argv[])
 		std::cout << "Fichier introuvable" << std::endl;
 		return -1;
 	}
-	Mat gray;
-	cvtColor(img, gray, CV_BGR2GRAY);
+
+	
 	clock_t tStart = clock();
-	Mat* U = fcm_NDG(gray, 3, 2.0, 0.01,50);
+	GrayFCM fcm;
+	fcm.setImage(img);
+	fcm.exec(3, 2.0, 0.01, 10);
 	std::cout << (double)(clock() - tStart) / CLOCKS_PER_SEC << std::endl;
 	namedWindow("test");
-	imshow("test", U[0]);
+	imshow("test", fcm.membership[0]);
 	waitKey(3000);
+	imshow("test", fcm.membership[1]);
+	waitKey(3000);
+	imshow("test", fcm.membership[2]);
+	waitKey(3000);
+	
+
+	/*
+	clock_t tStart = clock();
+	RgbFCM fcm;
+	fcm.setImage(img);
+	fcm.exec(3, 2.0, 0.01, 25);
+	std::cout << (double)(clock() - tStart) / CLOCKS_PER_SEC << std::endl;
+	namedWindow("test");
+	imshow("test", fcm.membership[0]);
+	waitKey(3000);
+	imshow("test", fcm.membership[1]);
+	waitKey(3000);
+	imshow("test", fcm.membership[2]);
+	waitKey(3000);
+	*/
 	return 0;
 }
