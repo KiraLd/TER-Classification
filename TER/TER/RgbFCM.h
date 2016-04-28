@@ -13,7 +13,7 @@ struct RgbFCM : public FuzzyClustering
 	void update_membership();
 	RgbFCM();
 	~RgbFCM();
-	void exec(int c, float m, float e, int i_max);
+	virtual void exec(int c, float m, float e, int i_max);
 };
 
 #endif

@@ -19,7 +19,7 @@ struct FuzzyClustering
 	~FuzzyClustering();
 	void setImage(const Mat& img);
 	void setImage(std::string file, int type);
-	void exportMembership(std::string file);
+	virtual void exportMembership(std::string file);
 	void show(int time);
 	virtual void exec(int c, float m, float e, int i_max) = 0;
 };

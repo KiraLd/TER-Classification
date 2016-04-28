@@ -6,13 +6,13 @@
 struct GrayFCM: public FuzzyClustering
 {
 	Mat* D;
-	void init();
-	void update_centers();
-	void dissimilarity();
-	void update_membership();
+	virtual void init();
+	virtual void update_centers();
+	virtual void dissimilarity();
+	virtual void update_membership();
 	GrayFCM();
 	~GrayFCM();
-	void exec(int c, float m, float e, int i_max);
+	virtual void exec(int c, float m, float e, int i_max);
 };
 
 #endif

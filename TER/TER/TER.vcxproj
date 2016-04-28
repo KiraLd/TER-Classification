@@ -157,13 +157,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FuzzyClustering.cpp" />
+    <ClCompile Include="GrayCA.cpp" />
     <ClCompile Include="GrayFCM.cpp" />
+    <ClCompile Include="RgbCa.cpp" />
     <ClCompile Include="RgbFCM.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FuzzyClustering.hpp" />
+    <ClInclude Include="GrayCA.h" />
     <ClInclude Include="GrayFCM.h" />
+    <ClInclude Include="RgbCA.h" />
     <ClInclude Include="RgbFCM.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

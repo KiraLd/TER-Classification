@@ -1,9 +1,5 @@
-﻿  Source.cpp
-c:\users\lucas\documents\visual studio 2015\projects\ter\ter\source.cpp(86): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-c:\users\lucas\documents\visual studio 2015\projects\ter\ter\source.cpp(89): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-c:\users\lucas\documents\visual studio 2015\projects\ter\ter\source.cpp(142): warning C4305: 'argument' : troncation de 'double' à 'float'
-  GrayFCM.cpp
-c:\users\lucas\documents\visual studio 2015\projects\ter\ter\grayfcm.cpp(79): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-c:\users\lucas\documents\visual studio 2015\projects\ter\ter\grayfcm.cpp(82): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-  Génération de code en cours...
+﻿  RgbCa.cpp
+c:\users\lucas\documents\visual studio 2015\projects\ter\ter\rgbca.cpp(115): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\users\lucas\documents\visual studio 2015\projects\ter\ter\rgbca.cpp(225): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+c:\users\lucas\documents\visual studio 2015\projects\ter\ter\rgbca.cpp(230): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
   TER.vcxproj -> C:\Users\Lucas\documents\visual studio 2015\Projects\TER\Debug\TER.exe

@@ -36,7 +36,20 @@ void FuzzyClustering::setImage(std::string file, int type)
 
 void FuzzyClustering::exportMembership(std::string file)
 {
-
+	std::string temp;
+	std::ostringstream oss;
+	Mat convert;
+	namedWindow("test");
+	for (int i = 0; i < c;i++)
+	{
+		oss << i;
+		temp = file + oss.str() + std::string(".png");
+		membership[i].convertTo(convert, CV_8UC1);
+		imshow("test", convert);
+		waitKey(3000);
+		imwrite(temp, convert);
+		oss = std::ostringstream("");
+	}
 }
 
 void FuzzyClustering::show(int time)
