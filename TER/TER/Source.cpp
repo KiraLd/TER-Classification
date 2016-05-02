@@ -140,16 +140,17 @@ int main(int argc, char* argv[])
 	clock_t tStart = clock();
 	RgbCA ca;
 	ca.setImage(img);
-	ca.exec(20, 2.0, 0.01, 50, 1,5);
+	int nb_c = 10;
+	ca.exec(nb_c, 2.0, 0.01, 500, 1,50);
 	std::cout << (double)(clock() - tStart) / CLOCKS_PER_SEC << std::endl;
 	int s = 0;
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < nb_c; i++)
 	{
 		namedWindow("test");
 		if (ca.alive[i])
 		{
-			imshow("test", ca.membership[i]);
-			waitKey(3000);
+			//imshow("test", ca.membership[i]);
+			//waitKey(3000);
 			s++;
 		}
 	}

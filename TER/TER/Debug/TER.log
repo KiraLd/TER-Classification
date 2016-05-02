@@ -1,5 +1,5 @@
 ﻿  RgbCa.cpp
-c:\users\lucas\documents\visual studio 2015\projects\ter\ter\rgbca.cpp(115): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
-c:\users\lucas\documents\visual studio 2015\projects\ter\ter\rgbca.cpp(225): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-c:\users\lucas\documents\visual studio 2015\projects\ter\ter\rgbca.cpp(230): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+c:\users\lucas\documents\visual studio 2015\projects\ter\ter\rgbca.cpp(121): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\users\lucas\documents\visual studio 2015\projects\ter\ter\rgbca.cpp(231): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+c:\users\lucas\documents\visual studio 2015\projects\ter\ter\rgbca.cpp(236): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
   TER.vcxproj -> C:\Users\Lucas\documents\visual studio 2015\Projects\TER\Debug\TER.exe

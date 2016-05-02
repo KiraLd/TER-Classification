@@ -25,6 +25,7 @@ void RgbCA::exportMembership(std::string file)
 	std::ostringstream oss;
 	Mat convert_;
 	namedWindow("test");
+	int j = 0;
 	for (int i = 0; i < c;i++)
 	{
 		if (alive[i])
@@ -34,8 +35,10 @@ void RgbCA::exportMembership(std::string file)
 			convert_ = convert(membership[i]);
 			imwrite(temp, convert_);
 			oss = std::ostringstream("");
+			j++;
 		}
 	}
+	std::cout << "Nb classes: " << j << std::endl;
 }
 
 Mat convert(Mat a)
@@ -47,9 +50,12 @@ Mat convert(Mat a)
 	{
 		for (int j = 0; j < y; j++)
 		{
-			b.at<uchar>(i, j) = (uchar)a.at<float>(i, j) * 255;
+			b.at<uchar>(i, j) = (uchar)((fabs(a.at<float>(i, j)) * 255));
 		}
 	}
+	namedWindow("test");
+	imshow("test", b);
+	waitKey(3000);
 	return b;
 }
 
@@ -166,10 +172,10 @@ void RgbCA::update_centers()
 					sum += Uexp[i].at<float>(j, k);
 				}
 			}
+			sum += e;
 			centers[3 * i] /= sum;
 			centers[3 * i + 1] /= sum;
 			centers[3 * i + 2] /= sum;
-			std::cout << centers[i] << std::endl;
 		}
 	}
 }
