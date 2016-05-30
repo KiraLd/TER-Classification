@@ -34,21 +34,35 @@ void FuzzyClustering::setImage(std::string file, int type)
 	}
 }
 
+Mat convertFuzzy(Mat a)
+{
+	int x = a.rows;
+	int y = a.cols;
+	Mat b = Mat(x, y, CV_8U);
+	for (int i = 0; i < x; i++)
+	{
+		for (int j = 0; j < y; j++)
+		{
+			b.at<uchar>(i, j) = (uchar)((fabs(a.at<float>(i, j)) * 255));
+		}
+	}
+	return b;
+}
+
 void FuzzyClustering::exportMembership(std::string file)
 {
 	std::string temp;
 	std::ostringstream oss;
-	Mat convert;
-	namedWindow("test");
+	Mat convert_;
+	int j = 0;
 	for (int i = 0; i < c;i++)
 	{
 		oss << i;
-		temp = file + oss.str() + std::string(".png");
-		membership[i].convertTo(convert, CV_8UC1);
-		imshow("test", convert);
-		waitKey(3000);
-		imwrite(temp, convert);
+		temp = file + oss.str() + std::string(".jpg");
+		convert_ = convertFuzzy(membership[i]);
+		imwrite(temp, convert_);
 		oss = std::ostringstream("");
+		j++;
 	}
 }
 

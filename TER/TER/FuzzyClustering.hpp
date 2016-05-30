@@ -23,5 +23,6 @@ struct FuzzyClustering
 	void show(int time);
 	virtual void exec(int c, float m, float e, int i_max) = 0;
 };
+Mat convertFuzzy(Mat a);
 
 #endif

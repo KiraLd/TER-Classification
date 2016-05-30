@@ -1,5 +1,4 @@
-﻿  RgbCa.cpp
-c:\users\lucas\documents\visual studio 2015\projects\ter\ter\rgbca.cpp(121): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
-c:\users\lucas\documents\visual studio 2015\projects\ter\ter\rgbca.cpp(231): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-c:\users\lucas\documents\visual studio 2015\projects\ter\ter\rgbca.cpp(236): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-  TER.vcxproj -> C:\Users\Lucas\documents\visual studio 2015\Projects\TER\Debug\TER.exe
+﻿  Fuzzy.cpp
+c:\users\lucas\documents\visual studio 2015\projects\ter\ter\fuzzy.cpp(669): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+c:\users\lucas\documents\visual studio 2015\projects\ter\ter\fuzzy.cpp(679): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+  TER.vcxproj -> C:\Users\Lucas\Documents\Visual Studio 2015\Projects\TER\Debug\TER.exe

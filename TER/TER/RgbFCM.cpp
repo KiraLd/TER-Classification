@@ -42,10 +42,19 @@ void RgbFCM::update_centers()
 				sum += exp[i].at<float>(j, k);
 			}
 		}
-		centers[3*i] /= sum;
-		centers[3 * i+1] /= sum;
-		centers[3 * i+2] /= sum;
-	//	std::cout << centers[i] << std::endl;
+		if (sum == 0)
+		{
+			centers[3 * i] =0;
+			centers[3 * i + 1] =0;
+			centers[3 * i + 2] = 0;
+		}
+		else
+		{
+			centers[3 * i] /= sum;
+			centers[3 * i + 1] /= sum;
+			centers[3 * i + 2] /= sum;
+		}
+			
 	}
 	delete[] exp;
 }
@@ -79,11 +88,7 @@ void RgbFCM::update_membership()
 {
 	float sum;
 	float exp;
-	if (m < 1.5)
-	{
-		m = 1.5;
-	}
-	exp = (1.f / (m - 1));
+	exp = (2.f / (m - 1));
 
 	for (int i = 0; i < c; i++)
 	{
@@ -92,13 +97,51 @@ void RgbFCM::update_membership()
 			for (int k = 0; k < y; k++)
 			{
 				sum = 0.f;
-				membership[i].at<float>(j, k) = std::powf(1. / D[i].at<float>(j, k), exp);
-				for (int l = 0; l < c;l++)
+				membership[i].at<float>(j, k) = 1.f;
+				if (D[i].at<float>(j, k) == 0)
 				{
-					sum += std::powf(1. / D[l].at<float>(j, k), exp);
+					membership[i].at<float>(j, k) = 0;
 				}
-				membership[i].at<float>(j, k) /= sum;
+				else
+				{
+					for (int l = 0; l < c; l++)
+					{
+						if (D[l].at<float>(j, k) != 0)
+						{
+							sum += pow(D[i].at<float>(j, k) / (D[l].at<float>(j, k)), exp);
+						}
+
+					}
+					if (sum != 0)
+					{
+						membership[i].at<float>(j, k) /= sum;
+					}
+					else
+					{
+						membership[i].at<float>(j, k) = 0.f;
+					}
+				}
 			}
+		}
+	}
+
+	for (int i = 0; i < x; i++)
+	{
+		for (int j = 0; j < y; j++)
+		{
+			sum = 0.f;
+			for (int k = 0; k < c;k++)
+			{
+				sum += membership[k].at<float>(i, j)*membership[k].at<float>(i, j);
+			}
+			if (sum != 0)
+			{
+				for (int k = 0; k < c; k++)
+				{
+					membership[k].at<float>(i, j) = membership[k].at<float>(i, j)*membership[k].at<float>(i, j) / sum;
+				}
+			}
+
 		}
 	}
 }
@@ -137,14 +180,7 @@ void RgbFCM::exec(int c, float m, float e, int i_max)
 	init();
 	bool arret = false;
 	int i = 0;
-	float mean = 0.f;
-	for (int j = 0; j < c;j++)
-	{
-		mean += centers[j * 3];
-		mean += centers[j * 3 + 1];
-		mean += centers[j * 3 + 2];
-	}
-	mean /= (c * 3);
+	float mean = 256.f*c * 3;
 	float mean_1;
 	while (!arret && i < i_max)
 	{

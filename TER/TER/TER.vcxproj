@@ -94,6 +94,8 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <OpenMPSupport>true</OpenMPSupport>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,6 +129,8 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <OpenMPSupport>true</OpenMPSupport>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -156,19 +160,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CA.cpp" />
+    <ClCompile Include="Fuzzy.cpp" />
     <ClCompile Include="FuzzyClustering.cpp" />
     <ClCompile Include="GrayCA.cpp" />
     <ClCompile Include="GrayFCM.cpp" />
     <ClCompile Include="RgbCa.cpp" />
     <ClCompile Include="RgbFCM.cpp" />
+    <ClCompile Include="RobustCA.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CA.hpp" />
+    <ClInclude Include="Fuzzy.hpp" />
     <ClInclude Include="FuzzyClustering.hpp" />
     <ClInclude Include="GrayCA.h" />
     <ClInclude Include="GrayFCM.h" />
     <ClInclude Include="RgbCA.h" />
     <ClInclude Include="RgbFCM.h" />
+    <ClInclude Include="RobustCA.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
